@@ -1,35 +1,18 @@
-puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?
-Merci d'entrer un nombre compris entre 1 et 25 !"
+def perform
+  
+  level = 0
+  while level < 1 || level > 25 						# Boucle pour obtenir un chiffre entre 1 et 25
+    puts "================================================"
+    print "Salut, bienvenue dans ma super pyramide ! \nCombien d'étages veux-tu ?\nMerci d'entrer un nombre compris entre 1 et 25 !\n> " 
+    level = gets.chomp.to_i
+  end
 
-print "> "
-num = gets.chomp.to_i
+  def pyramid(floors) 
+    puts "\nVoici la pyramide :\n"
+    1.upto(floors) { |i| puts ("+" * i).rjust(floors) } # Boucle pour l'affichage de la pyramide
+  end
 
-# Debut du loop pour obtenir un chiffre entre 1 et 25
-
-while num < 1 or num > 25
-	puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?
-Merci d'entrer un nombre compris entre 1 et 25 !"
-
-	print "> "
-	num = gets.chomp.to_i
+  pyramid(level) 										# Affichage de la pyramide
 end
 
-#Fin du loop pour le chiffre entre 1 et 25
-
-puts "Voici la pyramide :"
-
-# Debut du loop pour l'affichage de la pyramide
-
-d=1
-while d < num+1
-	(num-d).times do
-    	print " "
-	end
-	d.times do
-    	print "#"
-	end
-	puts " "
-	d+=1
-end
-
-# Fin du loop pour l'affichage de la pyramide
+perform
